@@ -1,0 +1,157 @@
+/*RESET */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* Mon CSS */
+.marg {
+	width: 950px;
+	margin: auto;
+}
+
+.clear { clear: both; }
+
+#main {
+	min-height: 930px;
+	background-image: url('../img/flux.jpg');
+	background-repeat: no-repeat;
+}
+nav {
+	min-height: 50px;
+	background-color: orange;
+}
+
+#center {
+	padding: 20px;
+}
+
+#left p {
+	font-size: 1.3em;
+	line-height: 30px;
+	font-weight: bold;
+}
+
+#left p:first-child {
+	font-style: italic;
+	font-weight: normal;
+	margin-bottom: 20px;
+}
+
+#left em {
+	font-size: 0.7em;
+}
+
+#login { margin-top: 60px; }
+
+#login input, #register input {
+	display: block;
+	margin-bottom: 15px;
+	border: 1px solid grey;
+	border-radius: 8px;
+	padding: 5px;
+}
+
+#register label {
+	display: block;
+	margin-bottom: 15px;
+}
+
+#login label { 
+	float: left;
+	width: 130px;
+}
+
+#submitLogin { 
+	float: right; 
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	margin: -75px 10px 0 0;
+}
+
+#submitRegister {
+	padding: 10px;
+	border-radius: 20px;
+}
+
+#submitLogin, #submitRegister {
+		background-color: orange;
+		border: none;
+		box-shadow: 1px 1px 15px black;
+}
+
+#left, #register { 
+	float: left;
+	margin-top: 100px;
+	max-width: 50%;
+}
+
+#register {
+	margin-left: 150px;
+	text-align: center;
+}
+
+#register input { width: 250px; }
+
+#register, #login {
+	padding: 25px;
+	border-radius: 15px;
+	background-color: rgba(255, 180, 65, 0.5);
+	box-shadow: 3px 3px 15px;
+}
+
+.erreur {
+	background-image: url("../img/input_error.png");
+	background-repeat: no-repeat;
+	background-size: 20px 20px;
+	background-position: 10px center;
+	border: 1px black solid;
+	padding: 5px 0 5px 50px;
+	border-radius: 5px;
+	margin-bottom: 10px;
+	background-color: rgba(255, 180, 65, 0.5);
+	box-shadow: 3px 3px 15px;
+}
+
+
+
