@@ -343,6 +343,52 @@ class Check extends User
         return $erreur;
     }
 
+    /**
+    * CheckDisplayFlux
+    *
+    * Fonction qui controle la selection d'un flux et le get de la page Readflux.php
+    * 
+    * @return array; 
+    */
+    public function checkDisplayFlux()
+    {
+        $erreur = array();
+        $result = array();
+        /*if (!empty($_GET)) {
+            if (isset($_GET['selectFlux'])) { //verification si le flux existe bien
+
+                $req = $this->_bdd->prepare("SELECT * FROM `flux` WHERE `id_flux` = ?");
+                $req->bindValue(1, $_GET['selectFlux'], PDO::PARAM_INT);
+                $req->execute();
+                $occup = $req->fetch();
+                if ($occup == false) {
+                    
+                }
+
+            } else {
+                header('Location: ../View/home.php');
+            }
+        }*/
+
+        if (isset($_POST['displayFlux'])) {
+            if ($_POST['selectFlux'] != "none") {
+                $user = new User;
+                $result = $user->DisplayFlux();
+            } else {
+                $erreur[] = "Veuillez selectionner un flux.";
+            }
+        }
+        if (isset($_GET['page']) && $_GET['page'] > 0) {
+         $user = new User;
+         $result = $user->DisplayFlux();
+     }
+
+        /*echo "<pre>";
+        var_dump($result);*/
+
+        return array($erreur, $result);
+    }
+
 }
 
 ?>

@@ -194,6 +194,41 @@ class User extends Bdd
     }
 
     /**
+    * DisplayFlux
+    *
+    * Fonction qui affiche un flux
+    *
+    * @return array;
+    */
+    public function displayFlux()
+    {
+        $results = array();
+        $table = "`flux`";
+        $infos = "*";
+        if(isset($_POST['selectFlux'])) {
+            $placeholder[] = $_POST['selectFlux'];
+        } elseif (isset($_GET['flux'])) {
+            $placeholder[] = $_GET['flux'];
+        }
+        $condition = " WHERE `id_flux` = ?";
+
+        $selectFlux = parent::voirInfos($table, $infos, $placeholder, $condition);
+
+        foreach ($selectFlux as $flux) {
+         $objFlux = simplexml_load_file($flux['url']);
+         foreach ($objFlux->channel->item as $flux) {
+             array_push($results, $flux);
+         }
+     }        
+
+        /*echo "<pre>";
+        var_dump($results);*/
+        $newTab = parent::pagination($results);    
+        
+        return $newTab;
+    }
+
+    /**
     * SupprimerCompte
     *
     * Fonction qui desactive le compte

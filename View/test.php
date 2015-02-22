@@ -5,9 +5,6 @@ $xml = simplexml_load_file('http://www.leparisien.fr/une/rss.xml');
 echo '<pre>';
 print_r($xml);
 
-$nb = 1;
-
-
 /*foreach ($xml->channel->item as $actu) {
 
 	?>

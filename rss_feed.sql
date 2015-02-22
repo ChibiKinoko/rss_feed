@@ -70,13 +70,13 @@ INSERT INTO `user` (`id_user`, `email`, `password`, `name`, `lastname`) VALUES
 -- Indexes for table `flux`
 --
 ALTER TABLE `flux`
- ADD PRIMARY KEY (`id_flux`);
+ ADD PRIMARY KEY (`id_flux`), ADD UNIQUE KEY `id_flux` (`id_flux`);
 
 --
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
- ADD PRIMARY KEY (`id_user`), ADD UNIQUE KEY `id_user` (`id_user`), ADD UNIQUE KEY `id_user_2` (`id_user`), ADD UNIQUE KEY `email` (`email`);
+ ADD PRIMARY KEY (`id_user`), ADD UNIQUE KEY `id_user` (`id_user`), ADD UNIQUE KEY `email` (`email`);
 
 --
 -- AUTO_INCREMENT for dumped tables

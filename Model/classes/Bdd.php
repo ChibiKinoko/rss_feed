@@ -60,27 +60,27 @@ class Bdd
     {
         $sql = "INSERT INTO " .$table . " (";
 
-        foreach ($infos as $cle => $valeur) {
-            $sql .=  $cle .", ";
-        }
-        $sql = substr($sql, 0, -2);
-        $sql .= ") VALUES (";
+            foreach ($infos as $cle => $valeur) {
+                $sql .=  $cle .", ";
+            }
+            $sql = substr($sql, 0, -2);
+            $sql .= ") VALUES (";
 
-        foreach ($infos as $value) {
-            $sql .= $value . ", ";
-        }
-        $sql = substr($sql, 0, -2);
-        $sql .= ")";
+            foreach ($infos as $value) {
+                $sql .= $value . ", ";
+            }
+            $sql = substr($sql, 0, -2);
+            $sql .= ")";
 
         //var_dump($sql);
         //var_dump($placeholder);
         //debug_print_backtrace();
 
-        $req = $this->_bdd->prepare($sql);
-        $send = $req->execute($placeholder);
+$req = $this->_bdd->prepare($sql);
+$send = $req->execute($placeholder);
 
-        return $send;   
-    }
+return $send;   
+}
 
     /**
     * VoirInfos
@@ -151,14 +151,35 @@ class Bdd
         $req->execute($placeholder);
     }
 
-    /*public function securiser($infos)
+    /**
+    * Pagination
+    *
+    * Fonction qui fait la pagination des affichage de flux
+    *
+    * @param array; $array tableau a decouper
+    *
+    * @return array;
+    */
+    public function pagination($array)
     {
-        foreach ($infos as $value) {
-            $secureInfo[] = addslashes($value);
+        $limit = 10;
+
+        if(isset($_GET['page'])) { // recupration de la page courante
+
+            $currentPage = $_GET['page'];
+        } else {
+            $currentPage = 1; //remet sur page 1 si aucune page definie
         }
 
-        return $secureInfo;
-    }*/
+        $newTab = array_slice($array, ($currentPage - 1)*$limit, $limit);
+
+        $nbPages = ceil(count($array)/$limit);
+
+        /*echo "<pre>";
+        var_dump($newTab);*/
+
+        return array($newTab, $nbPages, $currentPage);
+    }
 }
 
 ?>

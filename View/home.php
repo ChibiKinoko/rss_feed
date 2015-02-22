@@ -41,11 +41,11 @@ $session->coOrNot();
 		<div id="center" class="marg">
 			<h2>Bienvenue <?php echo $_SESSION['rss']['name']." ".$_SESSION['rss']['lastname']?></h2>
 
-			<div class="sections"><a href="edition.php">Editer mes informations</a></div>
+			<div class="sections"><a href="readFlux.php">Consulter mes Flux</a></div>
 
 			<div class="sections"><a href="gestionFlux.php">Gerer mes flux</a></div>
 
-			<div class="sections"><a href="readFlux">Consulter mes Flux</a></div>
+			<div class="sections"><a href="edition.php">Editer mes informations</a></div>
 		</div>
 
 	</div>
