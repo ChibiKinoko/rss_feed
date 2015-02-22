@@ -6,9 +6,9 @@
  *
  * @category Model
  * @package  Model
- * @author   zahir_d / pade_m / meng-b_l / thorna_c <ninjaturle@epitech.eu>
+ * @author   meng-b_l <laure.meng-boyer@epitech.eu>
  * @license  http://opensource.org/licenses/gpl-license.php GNU Public License
- * @link     http://localhost:8080/Projet_Web_tweet_academie
+ * @link     http://localhost:8080/PHP_Avance_RSS_Feed
  */
 
 /**
@@ -19,9 +19,9 @@
  *
  * @category Model
  * @package  Model
- * @author   zahir_d / pade_m / meng-b_l / thorna_c <ninjaturle@epitech.eu>
+ * @author   meng-b_l <laure.meng-boyer@epitech.eu>
  * @license  http://opensource.org/licenses/gpl-license.php GNU Public License
- * @link     http://localhost:8080/Projet_Web_tweet_academie/model/classes
+ * @link     http://localhost:8080/PHP_Avance_RSS_Feed/Model/classes
  */
 
 class Session
@@ -47,8 +47,8 @@ class Session
     */
     public function coOrNot()
     {
-        if (!isset($_SESSION['user']['id_user'])) {
-            header('Location: login_signup.php');
+        if (!isset($_SESSION['rss']['id_user'])) {
+            header('Location: ../View/login.php');
 
         }
     }
@@ -62,8 +62,8 @@ class Session
     */
     public function redirectionLoginSignUp()
     {
-        if (isset($_SESSION['user']['id_user'])) {
-            header('Location: index.php');
+        if (isset($_SESSION['rss']['id_user'])) {
+            header('Location: ../View/home.php');
 
         }
     }
@@ -79,7 +79,7 @@ class Session
     {
         session_destroy();
 
-        header('Location : login_signup.php');
+        header('Location: ../View/login.php');
     }
 }
 

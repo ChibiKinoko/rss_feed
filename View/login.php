@@ -10,10 +10,14 @@
  * @package  View
  * @author   meng-b_l <laure.meng-boyer@epitech.eu>
  * @license  http://opensource.org/licenses/gpl-license.php GNU Public License
- * @link     http://localhost:8080/PHP_Avance_RSS_Feed
+ * @link     hhttp://localhost:8080/PHP_Avance_RSS_Feed/View
  */
 
-require'../Controller/Check.php';
+include '../Model/classes/Session.php';
+include '../Controller/Check.php';
+
+$session = new Session;
+$session->redirectionLoginSignUp();
 
 if (isset($_POST['submitLogin'])) {
     $co = new Check();
@@ -34,14 +38,13 @@ if (isset($_POST['submitLogin'])) {
 </head>
 <body>
 
-    <div id="main">
+    <div id="mainLogin">
         <nav>
         </nav>
 
         <div id="center" class="marg">
             <?php
-            if (!empty($erreur))
-            {
+            if (!empty($erreur)) {
                 foreach ($erreur as $elem) {
                     ?>
                     <p class="erreur"><?php echo $elem; ?></p>

@@ -8,9 +8,9 @@
  *
  * @category Model
  * @package  Model
- * @author   zahir_d / pade_m / meng-b_l / thorna_c <ninjaturle@epitech.eu>
+ * @author   meng-b_l <laure.meng-boyer@epitech.eu>
  * @license  http://opensource.org/licenses/gpl-license.php GNU Public License
- * @link     http://localhost:8080/Projet_Web_tweet_academie/model/core
+ * @link     http://localhost:8080/PHP_Avance_RSS_Feed/Model/core
  */
 
 // ouverture de la session dans le init.php

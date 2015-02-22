@@ -6,9 +6,9 @@
  *
  * @category Model
  * @package  Model
- * @author   zahir_d / pade_m / meng-b_l / thorna_c <ninjaturle@epitech.eu>
+ * @author   meng-b_l <laure.meng-boyer@epitech.eu>
  * @license  http://opensource.org/licenses/gpl-license.php GNU Public License
- * @link     http://localhost:8080/Projet_Web_tweet_academie
+ * @link     http://localhost:8080/PHP_Avance_RSS_Feed
  */
 
 /**
@@ -18,9 +18,9 @@
  *
  * @category Controler
  * @package  Controler
- * @author   zahir_d / pade_m / meng-b_l / thorna_c <ninjaturle@epitech.eu>
+ * @author   meng-b_l <laure.meng-boyer@epitech.eu>
  * @license  http://opensource.org/licenses/gpl-license.php GNU Public License
- * @link     http://localhost:8080/Projet_Web_tweet_academie/controler
+ * @link     http://localhost:8080/PHP_Avance_RSS_Feed/controller
  */
 class Bdd
 {
@@ -37,7 +37,7 @@ class Bdd
     {
         try
         {
-            $this->_bdd = new PDO('mysql:host=localhost;dbname=common-database;unix_socket=/home/meng-b_l/.mysql/mysql.sock', 'root', '');
+            $this->_bdd = new PDO('mysql:host=localhost;dbname=rss_feed;unix_socket=/home/meng-b_l/.mysql/mysql.sock', 'root', '');
         }
         catch(PDOException $e)
         {
@@ -72,9 +72,9 @@ class Bdd
         $sql = substr($sql, 0, -2);
         $sql .= ")";
 
-        /*var_dump($sql);
-        var_dump($placeholder);
-        debug_print_backtrace();*/
+        //var_dump($sql);
+        //var_dump($placeholder);
+        //debug_print_backtrace();
 
         $req = $this->_bdd->prepare($sql);
         $send = $req->execute($placeholder);
