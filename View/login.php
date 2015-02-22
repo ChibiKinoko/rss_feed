@@ -38,7 +38,7 @@ if (isset($_POST['submitLogin'])) {
 </head>
 <body>
 
-    <div id="mainLogin">
+    <div id="main">
         <nav>
         </nav>
 

@@ -118,6 +118,7 @@ $listFlux = $user->selectFlux();
 					}
 					?>
 				</div>
+				<div class="clear"></div>
 				<?php
 			}
 			?>

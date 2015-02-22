@@ -51,10 +51,11 @@ table {
 
 .clear { clear: both; }
 
-#mainLogin {
+#main {
     min-height: 930px;
     background-image: url('../img/flux.jpg');
     background-repeat: no-repeat;
+    background-size: cover;
 }
 nav {
     min-height: 50px;
@@ -186,6 +187,7 @@ nav > div.marg > h1 + a {
     border-radius: 20px;
     width: 20%;
     min-height: 100px;
+    background-color: rgba(255, 180, 65, 0.5);
 }
 
 .sections:first-of-type, div > .sections + .sections { margin-right: 30px; }
@@ -209,6 +211,7 @@ nav > div.marg > h1 + a {
     border: 1px black solid;
     border-radius: 15px;
     margin-top: 30px;
+    background-color: rgba(255, 180, 65, 0.5);
 }
 
 .edition div:first-of-type {
@@ -244,6 +247,7 @@ nav > div.marg > h1 + a {
     border-radius: 10px;
     padding: 10px;
     margin: 20px 0;
+    background-color: rgba(255, 180, 65, 0.5);
 }
 
 #result article {
@@ -264,6 +268,9 @@ nav > div.marg > h1 + a {
     line-height: 20px;
 }
 
-.next, .previous { margin: 10px 0 20px 0; }
+.next, .previous { 
+    margin: 10px 0 20px 0;
+    color: white;
+}
 .next { float: right; }
 .previous { float: left; }
