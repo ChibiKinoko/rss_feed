@@ -162,7 +162,7 @@ return $send;
     */
     public function pagination($array)
     {
-        $limit = 10;
+        $limit = 5;
 
         if(isset($_GET['page'])) { // recupration de la page courante
 

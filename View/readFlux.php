@@ -66,7 +66,7 @@ $listFlux = $user->selectFlux();
 
 							?>
 							<option value="<?php echo $flux['id_flux']; ?>" 
-								<?php if (isset($_POST['selectFlux']) && $_POST['selectFlux'] == $flux['id_flux']) { 
+								<?php if ((isset($_POST['selectFlux']) && $_POST['selectFlux'] == $flux['id_flux']) || (isset($_GET['flux']) && $_GET['flux'] == $flux['id_flux'])) { 
 									echo "selected";
 								}
 								?>><?php echo $flux['name_flux']; ?>
