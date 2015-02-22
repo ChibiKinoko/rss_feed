@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost:3306
--- Generation Time: Feb 22, 2015 at 12:44 PM
+-- Generation Time: Feb 22, 2015 at 04:47 PM
 -- Server version: 5.5.33-MariaDB
 -- PHP Version: 5.4.20
 
@@ -19,18 +19,25 @@ SET time_zone = "+00:00";
 --
 -- Database: `rss_feed`
 --
+DROP DATABASE IF EXISTS `rss_feed`;
+
+CREATE DATABASE  `rss_feed`;
+
+USE `rss_feed`;
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `flux`
 --
+DROP TABLE IF EXISTS `flux`;
 
 CREATE TABLE IF NOT EXISTS `flux` (
 `id_flux` int(11) NOT NULL,
   `id_user` int(11) DEFAULT NULL,
   `name_flux` varchar(255) DEFAULT NULL,
-  `url` text
+  `url` varchar(1000) DEFAULT NULL,
+  `last_update` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -38,6 +45,7 @@ CREATE TABLE IF NOT EXISTS `flux` (
 --
 -- Table structure for table `user`
 --
+DROP TABLE IF EXISTS `user`;
 
 CREATE TABLE IF NOT EXISTS `user` (
 `id_user` int(11) NOT NULL,
@@ -45,7 +53,14 @@ CREATE TABLE IF NOT EXISTS `user` (
   `password` varchar(255) DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL,
   `lastname` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id_user`, `email`, `password`, `name`, `lastname`) VALUES
+(1, 'laure@laure.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'Laure', 'MENG');
 
 --
 -- Indexes for dumped tables
@@ -76,7 +91,7 @@ MODIFY `id_flux` int(11) NOT NULL AUTO_INCREMENT;
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

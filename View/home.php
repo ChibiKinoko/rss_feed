@@ -33,9 +33,9 @@ $session->coOrNot();
 
 	<div id="main">
 		<nav>
-			<h1><a href="home.php"><img src="img/home.png">Accueil</a></h1>
+			<h1><a href="home.php" title="lien vers l'acceuil"><img src="img/home.png" alt="icone acceuil">Accueil</a></h1>
 
-			<a href="home.php?deco=1"><button>Deconnexion</button></a>
+			<a href="home.php?deco=1">Deconnexion</a>
 		</nav>
 
 		<div id="center" class="marg">

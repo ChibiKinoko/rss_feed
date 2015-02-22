@@ -32,6 +32,7 @@ class User extends Bdd
     public function __construct()
     {
         parent::__construct();
+        libxml_use_internal_errors(); //permet de désactiver le gestionnaire d'erreurs libxml standard, et d'activer votre propre gestionnaire d'erreur. 
     }
 
     /**
@@ -75,7 +76,7 @@ class User extends Bdd
             }
 
             header('Location: ../View/home.php');
-        
+
         } else {
             $erreur[] = "Email et/ou mot de passe faux.";
         }
@@ -127,6 +128,68 @@ class User extends Bdd
         parent::modifier($table, $infos, $placeholder, $condition);
         $erreur[] = "Mot de passe modifie.";
 
+        return $erreur;
+    }
+
+    /**
+    * SelectFlux
+    *
+    * Fonction selectionne les flux pour les menus deroulant
+    *
+    * @return array;
+    */
+    public function selectFlux()
+    {
+        $table = "`flux`";
+        $infos = "*";
+        $placeholder[] = $_SESSION['rss']['id_user'];
+        $condition = " WHERE `id_user` = ?";
+        $result = parent::voirInfos($table, $infos, $placeholder, $condition);
+
+        return $result;
+    }
+
+    /**
+    * AddFlux
+    *
+    * Fonction qui ajoute un flux rss
+    *
+    * @return array;
+    */
+    public function addFlux()
+    {
+        $xml = simplexml_load_file($_POST['url']);
+        $nom = $xml->channel->title;
+        if (isset($xml->channel->lastBuildDate)) {
+            $last = $xml->channel->lastBuildDate;
+            $date = strftime("%Y-%m-%d %H:%M:%S", strtotime($last)); //converti la date rss en timestamp unix puis en format Y-m-d H:m:s
+        } else {
+            $date = date("Y-m-d H:i:s");
+        }
+        $table = "`flux`";
+        $infos = array("`id_user`" => "?", "`name_flux`" => "?", "`url`" => "?", "`last_update`" => "?");
+        $placeholder = array($_SESSION['rss']['id_user'], $nom, $_POST['url'], $date);
+        parent::ajouter($table, $infos, $placeholder);
+
+        $erreur[] = "Flux ajoute.";
+        return $erreur;
+    }
+
+    /**
+    * DeleteFlux
+    *
+    * Fonction qui supprime  un flux rss
+    *
+    * @return array;
+    */
+    public function deleteFlux()
+    {
+        $req = $this->_bdd->prepare("DELETE FROM `flux` WHERE `id_user` = ? AND `id_flux` = ?");
+        $req->bindValue(1, $_SESSION['rss']['id_user'], PDO::PARAM_INT);
+        $req->bindValue(2, $_POST['flux'], PDO::PARAM_INT);
+        $req->execute();
+
+        $erreur[] = "Flux supprime.";
         return $erreur;
     }
 

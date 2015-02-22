@@ -280,8 +280,66 @@ class Check extends User
             $user = new User;
             $erreur = $user->modifPwd($infos, $placeholder);
         }
+        return $erreur;
+    }
 
+    /**
+    * CheckUrl
+    *
+    * Fonction qui controle le mot de passe avant sa modification
+    * 
+    * @return array; 
+    */
+    public function checkUrl()
+    {
+        $send = true;
+        libxml_use_internal_errors();
 
+        if (!empty($_POST['url'])) {
+            $extension = substr($_POST['url'], -4, 4);
+            if ($extension != ".xml") {
+                $send = false;
+                $erreur[] = "L'url doit etre au format .xml";
+            }
+            $xml = simplexml_load_file($_POST['url']);
+            if ($xml == false) {
+                $send = false;
+                $erreur[] = "Une erreur s'est produite, veuillez reessayer.";
+            } else {
+                $erreur2 = libxml_get_errors();
+                if (!empty($erreur2)) {
+                    $send = false;
+                    $erreur[] = "Une erreur s'est produite, veuillez reessayer.";
+                }
+            }
+        } else {
+            $send = false;
+            $erreur[] = "Veuillez entrer une URL";
+        }
+        
+        if ($send != false) {
+            $user = new User;
+            $erreur = $user->addFlux();
+        }
+
+        return $erreur;
+    }
+
+    /**
+    * CheckDeleteFlux
+    *
+    * Fonction qui controle la suppression de flux
+    * 
+    * @return array; 
+    */
+    public function checkDeleteFlux()
+    {
+        if ($_POST['flux'] != "none") {
+            $user = new User;
+            $erreur = $user->deleteFlux();
+        } else {
+            $erreur[] = "Veuillez selectionner un flux.";
+        }
         return $erreur;
     }
 
