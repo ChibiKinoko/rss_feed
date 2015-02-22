@@ -40,9 +40,11 @@ if (isset($_POST['submitModif'])) {
 
 	<div id="main">
 		<nav>
-			<h1><a href="home.php" title="lien vers l'acceuil"><img src="img/home.png" alt="icone acceuil">Accueil</a></h1>
+			<div class="marg">
+				<h1><a href="home.php" title="lien vers l'acceuil"><img src="img/home.png" alt="icone acceuil">Accueil</a></h1>
 
-			<a href="home.php?deco=1">Deconnexion</a>
+				<a href="home.php?deco=1">Deconnexion</a>
+			</div>
 		</nav>
 
 		<div id="center" class="marg edition">

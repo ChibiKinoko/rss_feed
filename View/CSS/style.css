@@ -60,6 +60,19 @@ nav {
     min-height: 50px;
     background-color: orange;
 }
+h1, h1 img { width: 80px; }
+h1 a { color: transparent; }
+
+nav > div.marg > h1 + a {
+    float: right;
+    margin-top: -65px;
+    text-decoration: none;
+    color: white;
+    background-color: grey;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 1px 3px 7px black;
+}
 
 #center {
     padding: 20px;
